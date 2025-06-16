@@ -1,0 +1,14 @@
+<label *ngIf="label" class="form-label">{{ label }}</label>
+<div class="input-group">
+    <span *ngIf="icon" class="input-group-text">
+        <i [class]="icon"></i>
+    </span>
+    <input [type]="type" class="form-control" [value]="value" (input)="updateValue($event)" (blur)="onTouched()"
+        [placeholder]="placeholder" [class.is-invalid]="invalid" />
+    <ng-content></ng-content>
+</div>
+<ng-container *ngIf="invalid">
+    <div *ngFor="let error of errorMessages" class="invalid-feedback d-block">
+        {{error}}
+    </div>
+</ng-container>

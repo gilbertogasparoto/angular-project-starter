@@ -1,0 +1,8 @@
+<button type="button" class="btn btn-text" [ngClass]="theme">
+    <div class="d-flex flex-wrap gap-2">
+        <span *ngIf="icon">
+            <i [ngClass]="icon"></i>
+        </span>
+        <ng-content></ng-content>
+    </div>
+</button>

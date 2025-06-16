@@ -1,0 +1,15 @@
+$theme-colors: (
+    "primary": $color-primary,
+    "secondary": $color-secondary,
+    "success": $color-success,
+    "danger": $color-danger,
+    "warning": $color-warning,
+    "dark": $color-dark,
+    "gray": $color-gray,
+    "gray-light": $color-gray-light,
+    "light": $color-light,
+    "transparent": transparent,
+);
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import 'bootstrap/scss/bootstrap';

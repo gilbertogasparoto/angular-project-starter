@@ -1,0 +1,11 @@
+<div class="container">
+    <form [formGroup]="formTest" (ngSubmit)="submit()" class="my-4">
+        <app-input-default icon="bi bi-airplane-fill" label="teste" formControlName="default" />
+        <app-input-password icon="bi bi-lock" label="senha" formControlName="password" />
+        <app-input-currency label="currency" formControlName="currency" />
+        <app-input-search label="search" (search)="search($event)" />
+        <app-button-default icon="bi bi-eye-slash" type="submit" theme="success"
+            (click)="click()">Confirmar</app-button-default>
+        <app-button-icon icon="bi bi-eye-slash" theme="primary" />
+    </form>
+</div>
