@@ -1,4 +1,4 @@
-<button [type]="type" [ngClass]="['btn', 'btn-'+ theme, 'btn-icon-' + size, 'p-0']" [disabled]="disabled || loading"
+<button [type]="type" [ngClass]="['btn', buttonStyle, 'btn-icon-' + size, 'p-0']" [disabled]="disabled || loading"
     [attr.aria-busy]="loading ? 'true' : null">
     <ng-container *ngIf="loading; else btnContainer">
         <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>

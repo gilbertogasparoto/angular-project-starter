@@ -11,8 +11,10 @@ export abstract class InputBaseComponent implements ControlValueAccessor, OnInit
   @Input() placeholder: string = '';
   @Input() label?: string;
   @Input() icon?: string;
+  @Input() mask?: string;
 
-  public value = '';
+  public value: string = '';
+  public disabled = false;
   protected ngControl: NgControl | null = null;
 
   onChange = (_: any) => { };
@@ -20,7 +22,7 @@ export abstract class InputBaseComponent implements ControlValueAccessor, OnInit
 
   constructor(
     protected injector: Injector,
-    protected errorHandling: ErrorHandlingService
+    protected errorHandling: ErrorHandlingService,
   ) { }
 
   ngOnInit(): void {
@@ -58,5 +60,9 @@ export abstract class InputBaseComponent implements ControlValueAccessor, OnInit
     const input = event.target as HTMLInputElement;
     this.value = input.value;
     this.onChange(input.value);
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 }

@@ -1,0 +1,32 @@
+@import '../../../../styles/variables.scss';
+
+.btn {
+    &:disabled {
+        cursor: not-allowed !important;
+        background-color: var(--color-gray-light);
+        border-color: var(--color-gray-light);
+        color: var(--color-gray);
+    }
+}
+
+@each $color, $value in $app-colors {
+    .btn-soft-#{$color} {
+        background-color: rgba(var(--bs-#{$color}-rgb), 0.15);
+        color: var(--bs-#{$color});
+        border: none;
+
+        &:hover {
+            background-color: rgba(var(--bs-#{$color}-rgb), 0.25);
+        }
+    }
+
+    .btn-ghost-#{$color} {
+        background-color: transparent;
+        color: var(--bs-#{$color});
+        border: none;
+
+        &:hover {
+            color: lighten($value, 10%);
+        }
+    }
+}

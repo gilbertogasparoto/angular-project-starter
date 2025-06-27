@@ -1,0 +1,19 @@
+<div class="upload-area p-4 text-center" [ngClass]="{'uploaded': selectedFile}" (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)" (drop)="onDrop($event)" [class.dragging]="isDragging" (click)="selectFile()">
+
+    <div *ngIf="selectedFile; else noImage">
+        <img [src]="selectedFile" class="img-thumbnail mb-3">
+    </div>
+    <ng-template #noImage>
+        <i class="bi bi-image h2"></i>
+        <h6 *ngIf="!selectedFile" class="my-3">
+            Arraste ou selecione uma imagem
+        </h6>
+    </ng-template>
+
+    <app-button-default>Buscar arquivo</app-button-default>
+
+    <p *ngIf="!selectedFile" class="mt-2">
+        <small class="text-gray">Formatos: PNG ou JPG</small>
+    </p>
+</div>

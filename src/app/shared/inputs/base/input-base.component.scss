@@ -1,16 +1,33 @@
-:host {
-    .input-group {
-        border: 1px solid var(--color-gray-light);
-        border-radius: 0.5rem;
-        transition: 300ms ease;
-        position: relative;
+.input-group {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-gray-light);
+    border-radius: 0.5rem;
+    position: relative;
+    transition: 300ms ease;
 
-        input {
-            border: none;
-        }
+    &.is-invalid {
+        border: 1px solid var(--color-danger);
+    }
 
-        &:focus-within {
-            border: 1px solid var(--color-primary);
+    input.form-control,
+    .form-select {
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+
+        &:disabled {
+            opacity: 50%;
+            cursor: not-allowed;
         }
+    }
+
+    span.input-group-text {
+        background-color: transparent;
+        border: none;
+        padding-right: 0;
+    }
+
+    &:focus-within {
+        border: 1px solid var(--color-primary);
     }
 }

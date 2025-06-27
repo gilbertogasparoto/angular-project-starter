@@ -33,12 +33,22 @@ export class ErrorHandlingService {
 
     if (control?.hasError('minlength')) {
       const err = control.getError('minlength');
-      errors.push(`Deve ter no mínimo ${err.requiredLength} caracteres.`);
+      errors.push(`Campo deve ter no mínimo ${err.requiredLength} caracteres.`);
     }
 
     if (control?.hasError('maxlength')) {
       const err = control.getError('maxlength');
-      errors.push(`Deve ter no máximo ${err.requiredLength} caracteres.`);
+      errors.push(`Campo deve ter no máximo ${err.requiredLength} caracteres.`);
+    }
+
+    if (control?.hasError('min')) {
+      const err = control.getError('min');
+      errors.push(`Valor deve ser no mínimo ${err.min}.`);
+    }
+
+    if (control?.hasError('max')) {
+      const err = control.getError('max');
+      errors.push(`Valor deve ser no máximo ${err.max}.`);
     }
 
     if (control?.hasError('pattern')) {

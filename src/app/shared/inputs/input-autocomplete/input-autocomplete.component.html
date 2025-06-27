@@ -1,0 +1,19 @@
+<label *ngIf="label" class="form-label">{{ label }}</label>
+<div class="input-group position-relative" [class.is-invalid]="invalid">
+    <span *ngIf="icon" class="input-group-text">
+        <i [class]="icon"></i>
+    </span>
+    <input type="text" class="form-control" [value]="value" (input)="updateValue($event)" (blur)="onBlur()"
+        (focus)="onFocus()" [placeholder]="placeholder" [disabled]="disabled" [class.is-invalid]="invalid" />
+
+    <ul *ngIf="showDropdown && filtered.length" class="dropdown-menu show mt-2">
+        <li *ngFor="let suggestion of filtered" class="dropdown-item" (click)="selectSuggestion(suggestion)">
+            {{ displayField ? suggestion[displayField] : suggestion }}
+        </li>
+    </ul>
+</div>
+<ng-container *ngIf="invalid">
+    <div *ngFor="let error of errorMessages" class="invalid-feedback d-block">
+        {{error}}
+    </div>
+</ng-container>

@@ -1,10 +1,10 @@
 <label *ngIf="label" class="form-label">{{ label }}</label>
-<div class="input-group">
+<div class="input-group" [class.is-invalid]="invalid">
     <span *ngIf="icon" class="input-group-text">
         <i [class]="icon"></i>
     </span>
-    <input [type]="type" class="form-control" [value]="value" (input)="updateValue($event)" (blur)="onTouched()"
-        [placeholder]="placeholder" [class.is-invalid]="invalid" />
+    <input [type]="type" class="form-control" [(ngModel)]="value" (input)="updateValue($event)" (blur)="onTouched()"
+        [placeholder]="placeholder" [class.is-invalid]="invalid" [mask]="mask" [disabled]="disabled" />
     <ng-content></ng-content>
 </div>
 <ng-container *ngIf="invalid">

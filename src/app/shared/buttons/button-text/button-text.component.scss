@@ -1,4 +1,6 @@
 .btn-text {
+    border: none;
+
     &.primary {
         :hover {
             color: var(--color-primary);

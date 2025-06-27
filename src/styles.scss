@@ -1,17 +1,11 @@
 @import "styles/reset";
 @import "styles/variables";
+@import "styles/flexbox";
 
 @import "styles/bootstrap";
 
 :root {
-    --color-primary: #{$color-primary};
-    --color-secondary: #{$color-secondary};
-    --color-success: #{$color-success};
-    --color-danger: #{$color-danger};
-    --color-warning: #{$color-warning};
-    --color-dark: #{$color-dark};
-    --color-gray: #{$color-gray};
-    --color-gray-light: #{$color-gray-light};
-    --color-gray-lighter: #{$color-gray-lighter};
-    --color-light: #{$color-light};
+    @each $name, $value in $app-colors {
+        --color-#{$name}: #{$value};
+    }
 }

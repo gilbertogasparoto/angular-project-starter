@@ -1,15 +1,28 @@
-$theme-colors: (
-    "primary": $color-primary,
-    "secondary": $color-secondary,
-    "success": $color-success,
-    "danger": $color-danger,
-    "warning": $color-warning,
-    "dark": $color-dark,
-    "gray": $color-gray,
-    "gray-light": $color-gray-light,
-    "light": $color-light,
-    "transparent": transparent,
-);
+// colors
+$theme-colors: $app-colors;
+$component-active-bg: map-get($app-colors, "primary");
+$focus-ring-box-shadow: none;
+
+// typography
+
+$font-family-base: "Rubik", sans-serif;
+
+// inputs
+$input-padding-y: 0.5rem;
+$input-padding-x: 1rem;
+
+$input-placeholder-color: map-get($app-colors, "gray-light");
+
+$form-label-font-size: 14px;
+$form-label-font-weight: 500;
+
+// checks and radios
+
+$form-check-input-width: 1.25em;
+
+// butons
+$btn-border-width: 2px;
+
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import 'bootstrap/scss/bootstrap';

@@ -1,10 +1,11 @@
 <label *ngIf="label" class="form-label">{{ label }}</label>
-<div class="input-group">
+<div class="input-group" [class.is-invalid]="invalid">
     <span *ngIf="icon" class="input-group-text">
         <i [class]="icon"></i>
     </span>
-    <input type="text" class="form-control" [value]="value" (input)="updateValue($event)" (blur)="onTouched()"
-        [placeholder]="placeholder" [class.is-invalid]="invalid" />
+    <input type="tel" class="form-control" [value]="value" (keypress)="allowOnlyNumbers($event)"
+        (input)="updateValue($event)" (blur)="onTouched()" [placeholder]="placeholder" [class.is-invalid]="invalid"
+        [disabled]="disabled" />
     <ng-content></ng-content>
 </div>
 <ng-container *ngIf="invalid">

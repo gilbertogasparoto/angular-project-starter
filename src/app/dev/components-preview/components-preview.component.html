@@ -1,11 +1,320 @@
+<div class="bg-gray-lighter">
+    <div class="container">
+        <div class="row gx-5 gy-4 py-5">
+            <div class="col-lg-5">
+                <h1 class="fw-bold">Ui Library</h1>
+                <code>powered by Bootstrap</code>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
-    <form [formGroup]="formTest" (ngSubmit)="submit()" class="my-4">
-        <app-input-default icon="bi bi-airplane-fill" label="teste" formControlName="default" />
-        <app-input-password icon="bi bi-lock" label="senha" formControlName="password" />
-        <app-input-currency label="currency" formControlName="currency" />
-        <app-input-search label="search" (search)="search($event)" />
-        <app-button-default icon="bi bi-eye-slash" type="submit" theme="success"
-            (click)="click()">Confirmar</app-button-default>
-        <app-button-icon icon="bi bi-eye-slash" theme="primary" />
-    </form>
+    <section class="py-5">
+        <h2 class="mb-1">Inputs</h2>
+        <p class="text-gray"><small>📂 /src/app/shared/inputs</small></p>
+        <hr class="my-4 text-gray-light" />
+        <div class="row gy-4">
+            <div class="col-lg-4">
+                <p class="my-4">
+                    A <strong>BaseInputComponent</strong> fornece a estrutura base para todos os inputs do sistema. Ela
+                    implementa
+                    <code>ControlValueAccessor</code>, integra com <code>ReactiveForms</code> e lida com validações,
+                    estados e
+                    exibição
+                    de erros.
+                </p>
+                <!-- <p class="mt-2">
+                    Os inputs derivados (como <code>InputPassword</code>, <code>InputCurrency</code> e
+                    <code>InputSearch</code>)
+                    estendem essa base
+                    e sobrescrevem comportamentos conforme necessário.
+                </p> -->
+            </div>
+            <div class="col-lg-7 offset-lg-1">
+                <form [formGroup]="formDefaultField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-default label="Padrão" placeholder="Placeholder" formControlName="default" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-default label="Preenchido" placeholder="Placeholder" formControlName="typing" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-default icon="bi bi-stars" label="ícone" placeholder="Placeholder"
+                            formControlName="icon" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-default label="Inválido" placeholder="Placeholder" formControlName="invalid" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-default label="Desabilitado" placeholder="Placeholder" formControlName="disabled" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row gx-5 gy-5 py-5">
+            <div class="col-12">
+                <p class="mt-2">
+                    Os inputs derivados (como <code>InputPassword</code>, <code>InputCurrency</code> e
+                    <code>InputSearch</code>)
+                    estendem essa base
+                    e sobrescrevem comportamentos conforme necessário.
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <form [formGroup]="formPasswordField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-password label="Senha" placeholder="Placeholder" formControlName="default" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-password label="Preenchido" placeholder="Placeholder" formControlName="typing" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-password icon="bi bi-lock-fill" label="ícone" placeholder="Placeholder"
+                            formControlName="icon" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-password label="Inválido" placeholder="Placeholder" formControlName="invalid" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-password label="Desabilitado" placeholder="Placeholder" formControlName="disabled" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form [formGroup]="formCurrencyField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-currency label="Valor monetário" placeholder="Placeholder"
+                            formControlName="default" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-currency label="Preenchido" placeholder="Placeholder" formControlName="typing" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-currency icon="bi bi-currency-dollar" label="ícone" placeholder="Placeholder"
+                            formControlName="icon" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-currency label="Inválido" placeholder="Placeholder" formControlName="invalid" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-currency label="Desabilitado" placeholder="Placeholder" formControlName="disabled" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form [formGroup]="formSearchField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-search label="Pesquisa" placeholder="Placeholder" formControlName="default" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-search label="Preenchido" placeholder="Placeholder" formControlName="typing" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-search icon="bi bi-search-heart-fill" label="ícone" placeholder="Placeholder"
+                            formControlName="icon" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-search label="Inválido" placeholder="Placeholder" formControlName="invalid" />
+                    </div>
+
+                    <div class="mb-3">
+                        <app-input-search label="Desabilitado" placeholder="Placeholder" formControlName="disabled" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-lg-4">
+                <form [formGroup]="formSelectField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-select label="Select" placeholder="Selecione" formControlName="default"
+                            [options]="selectOptions">
+                        </app-input-select>
+                    </div>
+                    <div class="mb-3">
+                        <app-input-select label="Selecionado" placeholder="Selecione" formControlName="selected"
+                            [options]="selectOptions">
+
+                        </app-input-select>
+                    </div>
+                    <div class="mb-3">
+                        <app-input-select label="ícone" icon="bi bi-stars" placeholder="Selecione"
+                            formControlName="icon" [options]="selectOptions">
+
+                        </app-input-select>
+                    </div>
+                    <div class="mb-3">
+                        <app-input-select label="Inválido" placeholder="Selecione" formControlName="invalid"
+                            [options]="selectOptions">
+
+                        </app-input-select>
+                    </div>
+                    <div class="mb-3">
+                        <app-input-select label="Desabilitado" placeholder="Selecione" formControlName="disabled"
+                            [options]="selectOptions">
+                        </app-input-select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form [formGroup]="formAutocompleteField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-autocomplete label="Autocomplete" placeholder="Placeholder" formControlName="default"
+                            [data]="['Primeira Opção', 'Segunda Opção', 'Terceira Opção']" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-autocomplete label="Selecionado" placeholder="Placeholder" formControlName="selected"
+                            [data]="['Primeira Opção', 'Segunda Opção', 'Terceira Opção']" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-autocomplete icon="bi bi-stars" label="ícone" placeholder="Placeholder"
+                            formControlName="icon" [data]="['Primeira Opção', 'Segunda Opção', 'Terceira Opção']" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-autocomplete label="Inválido" placeholder="Placeholder" formControlName="invalid"
+                            [data]="['Primeira Opção', 'Segunda Opção', 'Terceira Opção']" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-autocomplete label="Desabilitado" placeholder="Placeholder"
+                            formControlName="disabled" [data]="['Primeira Opção', 'Segunda Opção', 'Terceira Opção']" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4">
+                <form [formGroup]="formDatePickerField" (ngSubmit)="submit()">
+                    <div class="mb-3">
+                        <app-input-default type="date" label="Date Picker" formControlName="default" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-default type="date" label="Preenchido" formControlName="typing" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-default type="date" icon="bi bi-calendar-fill" label="ícone"
+                            formControlName="icon" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-default type="date" label="Inválido" formControlName="invalid" />
+                    </div>
+                    <div class="mb-3">
+                        <app-input-default type="date" label="Desabilitado" formControlName="disabled" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <h2 class="mb-1">Form Elements</h2>
+        <p class="text-gray"><small>📂 /src/app/shared/form-elements</small></p>
+        <hr class="my-4 text-gray-light" />
+
+        <div class="row gy-4">
+            <div class="col-lg-4 d-flex flex-column gap-3">
+                <label class="form-label">Checkbox</label>
+                <app-form-check label="Padrão" />
+                <app-form-check label="Selecionado" [checked]="true" />
+                <app-form-check label="Desabilitado" [disabled]="true" />
+            </div>
+            <div class="col-lg-4 d-flex flex-column gap-3">
+                <label class="form-label">Radio Button</label>
+                <app-form-check type="radio" name="radio" label="Padrão" />
+                <app-form-check type="radio" name="radio" label="Selecionado" [checked]="true" />
+                <app-form-check type="radio" name="radio" label="Desabilitado" [disabled]="true" />
+            </div>
+            <div class="col-lg-4 d-flex flex-column gap-3">
+                <label class="form-label">Switch Toggle</label>
+                <app-switch label=" Padrão" />
+                <app-switch label=" Selecionado" [checked]="true" />
+                <app-switch label=" Desabilitado" [disabled]="true" />
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <h2 class="mb-1">Buttons</h2>
+        <p class="text-gray"><small>📂 /src/app/shared/buttons</small></p>
+        <hr class="my-4 text-gray-light" />
+
+        <div class="row gx-5 gy-4">
+            <div class="col-lg-3 flex-align-center flex-column gap-3 text-center">
+                <label class="form-label">Button Large</label>
+                <app-button-default size="lg" width="100%">PADRÃO</app-button-default>
+                <app-button-default icon="bi bi-stars" size="lg" width="100%">ÍCONE</app-button-default>
+                <app-button-default size="lg" width="100%" variant="outline">OUTLINE</app-button-default>
+                <app-button-default size="lg" width="100%" variant="soft">SOFT</app-button-default>
+                <app-button-default size="lg" width="100%" variant="ghost">GHOST</app-button-default>
+                <app-button-default size="lg" width="100%" [disabled]="true">DESABILITADO</app-button-default>
+            </div>
+            <div class="col-lg-3 flex-align-center flex-column gap-3 text-center">
+                <label class="form-label">Button Medium</label>
+                <app-button-default width="75%">PADRÃO</app-button-default>
+                <app-button-default icon="bi bi-stars" width="75%">ÍCONE</app-button-default>
+                <app-button-default width="75%" variant="outline">OUTLINE</app-button-default>
+                <app-button-default width="75%" variant="soft">SOFT</app-button-default>
+                <app-button-default width="75%" variant="ghost">GHOST</app-button-default>
+                <app-button-default width="75%" [disabled]="true">DESABILITADO</app-button-default>
+            </div>
+            <div class="col-lg-3 flex-align-center flex-column gap-3 text-center">
+                <label class="form-label">Button Small</label>
+                <app-button-default size="sm" width="70%">PADRÃO</app-button-default>
+                <app-button-default size="sm" icon="bi bi-stars" width="70%">ÍCONE</app-button-default>
+                <app-button-default size="sm" width="70%" variant="outline">OUTLINE</app-button-default>
+                <app-button-default size="sm" width="70%" variant="soft">SOFT</app-button-default>
+                <app-button-default size="sm" width="70%" variant="ghost">GHOST</app-button-default>
+                <app-button-default size="sm" width="70%" [disabled]="true">DESABILITADO</app-button-default>
+            </div>
+
+            <div class="col-lg-3 flex-align-center flex-column gap-3 text-center">
+                <label class="form-label">Button Icon</label>
+                <div class="flex-align-center gap-2">
+                    <app-button-icon size="lg" icon="bi bi-stars" />
+                    <app-button-icon icon="bi bi-stars" />
+                    <app-button-icon size="sm" icon="bi bi-stars" />
+                </div>
+                <div class="flex-align-center gap-2">
+                    <app-button-icon size="lg" icon="bi bi-stars" variant="outline" />
+                    <app-button-icon icon="bi bi-stars" variant="outline" />
+                    <app-button-icon size="sm" icon="bi bi-stars" variant="outline" />
+                </div>
+                <div class="flex-align-center gap-2">
+                    <app-button-icon size="lg" icon="bi bi-stars" variant="soft" />
+                    <app-button-icon icon="bi bi-stars" variant="soft" />
+                    <app-button-icon size="sm" icon="bi bi-stars" variant="soft" />
+                </div>
+                <div class="flex-align-center gap-2">
+                    <app-button-icon size="lg" icon="bi bi-stars" variant="ghost" />
+                    <app-button-icon icon="bi bi-stars" variant="ghost" />
+                    <app-button-icon size="sm" icon="bi bi-stars" variant="ghost" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <h2 class="mb-1">Archieve Upload</h2>
+        <p class="text-gray"><small>📂 /src/app/shared/form-elements</small></p>
+        <hr class="my-4 text-gray-light" />
+
+        <div class="row">
+            <div class="col-lg-4">
+                <app-image-uploader />
+            </div>
+        </div>
+    </section>
 </div>

@@ -1,0 +1,19 @@
+<label *ngIf="label" class="form-label">{{ label }}</label>
+<div class="input-group" [class.is-invalid]="invalid">
+    <span *ngIf="icon" class="input-group-text">
+        <i [class]="icon"></i>
+    </span>
+    <select class="form-select" [(ngModel)]="value" (input)="updateValue($event)" (blur)="onTouched()"
+        [class.is-invalid]="invalid" [disabled]="disabled">
+        <option value="" disabled selected hidden>{{ placeholder }}</option>
+        <option *ngFor="let option of options" [value]="option.value">
+            {{ option.label }}
+        </option>
+        <ng-content></ng-content>
+    </select>
+</div>
+<ng-container *ngIf="invalid">
+    <div *ngFor="let error of errorMessages" class="invalid-feedback d-block">
+        {{error}}
+    </div>
+</ng-container>

@@ -1,4 +1,4 @@
-<button [type]="type" [ngClass]="['btn', 'btn-'+ theme, 'btn-' + size]" [disabled]="disabled || loading"
+<button [type]="type" [ngClass]="['btn', buttonStyle, 'btn-' + size]" [disabled]="disabled || loading"
     [attr.aria-busy]="loading ? 'true' : null" [ngStyle]="{'width': width}">
     <ng-container *ngIf="loading; else iconContainer">
         <span class="me-2">
