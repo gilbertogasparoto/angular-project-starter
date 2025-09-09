@@ -1,0 +1,21 @@
+.upload-area {
+    background-color: var(--color-light);
+    border: 2px dashed var(--color-gray-light);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 1rem;
+    min-height: 15rem;
+
+    &:hover {
+        background-color: var(--color-gray-lighter);
+    }
+
+    &.uploaded {
+        background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
+        border: 2px solid var(--color-primary);
+    }
+
+    &.dragging {
+        background-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    }
+}

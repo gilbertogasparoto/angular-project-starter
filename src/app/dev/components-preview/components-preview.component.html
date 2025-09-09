@@ -308,12 +308,17 @@
 
     <section class="py-5">
         <h2 class="mb-1">Archieve Upload</h2>
-        <p class="text-gray"><small>📂 /src/app/shared/form-elements</small></p>
+        <p class="text-gray"><small>📂 /src/app/shared/archive-upload</small></p>
         <hr class="my-4 text-gray-light" />
 
         <div class="row">
             <div class="col-lg-4">
-                <app-image-uploader />
+                <label class="form-label">File Upload</label>
+                <app-file-uploader [acceptedTypes]="['application/pdf']" />
+            </div>
+            <div class="col-lg-4">
+                <label class="form-label">Image Upload</label>
+                <app-image-uploader aspectRatio="1:1" />
             </div>
         </div>
     </section>

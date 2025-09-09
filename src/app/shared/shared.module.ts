@@ -17,6 +17,8 @@ import { SwitchComponent } from './form-elements/switch/switch.component';
 import { FormCheckComponent } from './form-elements/form-check/form-check.component';
 import { ImageUploaderComponent } from './archieve-upload/image-uploader/image-uploader.component';
 import { FileUploaderComponent } from './archieve-upload/file-uploader/file-uploader.component';
+import { ImageEditorModalComponent } from './modals/image-editor-modal/image-editor-modal.component';
+import { ImageCropperComponent } from 'ngx-image-cropper';
 
 
 
@@ -36,12 +38,14 @@ import { FileUploaderComponent } from './archieve-upload/file-uploader/file-uplo
     SwitchComponent,
     ImageUploaderComponent,
     FileUploaderComponent,
+    ImageEditorModalComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     NgxMaskDirective,
+    ImageCropperComponent,
     CoreModule
   ],
   exports: [

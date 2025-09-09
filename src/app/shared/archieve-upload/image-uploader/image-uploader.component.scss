@@ -3,15 +3,41 @@
     border: 2px dashed var(--color-gray-light);
     cursor: pointer;
     transition: 0.2s ease;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
+    min-height: 15rem;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        background-color: var(--color-gray-lighter);
+    }
 
     &.uploaded {
-        background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
-        border: 2px solid var(--color-primary);
+        border: 2px solid transparent;
     }
 
     &.dragging {
-        background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+        background-color: color-mix(in srgb, var(--color-primary) 5%, transparent);
         border: 2px dashed var(--color-primary);
+    }
+
+    .uploaded-image-options {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+        opacity: 0%;
+        transition: 300ms ease;
+
+        background-color: color-mix(in srgb, var(--color-dark) 25%, transparent);
+
+        &:hover {
+            opacity: 100%;
+        }
     }
 }

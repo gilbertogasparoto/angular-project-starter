@@ -1,19 +1,29 @@
-<div class="upload-area p-4 text-center" [ngClass]="{'uploaded': selectedFile}" (dragover)="onDragOver($event)"
+<div class="upload-area flex-center text-center" [ngClass]="{'uploaded': selectedFile}" (dragover)="onDragOver($event)"
     (dragleave)="onDragLeave($event)" (drop)="onDrop($event)" [class.dragging]="isDragging" (click)="selectFile()">
 
     <div *ngIf="selectedFile; else noImage">
-        <img [src]="selectedFile" class="img-thumbnail mb-3">
+        <div class="uploaded-image-options" (click)="$event.stopPropagation()">
+            <app-button-default theme="secondary" (click)="selectFile()">Alterar</app-button-default>
+            <app-button-default icon="bi bi-trash3-fill" theme="danger"
+                (click)="removeImage(); $event.stopPropagation()">Remover</app-button-default>
+        </div>
+        <div>
+            <img [src]="selectedFile" class="img-fluid">
+        </div>
     </div>
     <ng-template #noImage>
-        <i class="bi bi-image h2"></i>
-        <h6 *ngIf="!selectedFile" class="my-3">
-            Arraste ou selecione uma imagem
-        </h6>
+        <div class="p-4">
+            <i class="bi bi-image text-gray-light h3"></i>
+            <p class="mt-2">
+                Arraste e solte uma imagem, ou <br />selecione do seu dispositivo
+            </p>
+            <p>
+                <small class="text-gray">Formatos: PNG ou JPG</small>
+            </p>
+            <div class="mt-3">
+                <app-button-default>Selecionar imagem</app-button-default>
+            </div>
+        </div>
     </ng-template>
 
-    <app-button-default>Buscar arquivo</app-button-default>
-
-    <p *ngIf="!selectedFile" class="mt-2">
-        <small class="text-gray">Formatos: PNG ou JPG</small>
-    </p>
 </div>
