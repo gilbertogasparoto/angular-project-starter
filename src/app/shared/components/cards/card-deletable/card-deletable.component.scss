@@ -1,0 +1,23 @@
+.card-wrapper {
+    position: relative;
+}
+
+.swipe-card {
+    position: relative;
+    background: #fff;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.card-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+
+    ::ng-deep button {
+        height: 100% !important;
+        border-radius: 1rem !important;
+    }
+}

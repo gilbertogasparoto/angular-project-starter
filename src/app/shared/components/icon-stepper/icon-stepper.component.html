@@ -1,0 +1,9 @@
+<div class="pb-4">
+        <div class="track">
+                <div *ngFor="let step of steps; let i = index" class="step" [ngClass]="getClass(i)">
+                        <button class="icon" (click)="selected.emit(i)" [disabled]="i > max">
+                                <i class="bi" [ngClass]="[step]"></i>
+                        </button>
+                </div>
+        </div>
+</div>

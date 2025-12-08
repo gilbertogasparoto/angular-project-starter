@@ -1,0 +1,8 @@
+<div class="dropdown" #host>
+    <app-button-text #toggle size="lg" type="button" aria-expanded="false" (onclick)="toggleDropdown($event)">
+        <i class="bi bi-three-dots"></i>
+    </app-button-text>
+    <ul #menu class="dropdown-menu dropdown-menu-end" role="menu">
+        <ng-content></ng-content>
+    </ul>
+</div>

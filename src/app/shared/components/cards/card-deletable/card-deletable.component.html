@@ -1,0 +1,10 @@
+<div class="card-wrapper">
+    <div class="card swipe-card" (mousedown)="onDragStart($event)" (mousemove)="onDragMove($event)"
+        (mouseup)="onDragEnd($event)" (touchstart)="onDragStart($event)" (touchmove)="onDragMove($event)"
+        (touchend)="onDragEnd($event)">
+        <ng-content></ng-content>
+    </div>
+    <div class="card-delete" (click)="deleteItem()">
+        <app-button-icon theme="danger" variant="soft" size="lg" icon="bi bi-trash-fill h3" />
+    </div>
+</div>

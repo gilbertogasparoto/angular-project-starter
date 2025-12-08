@@ -1,0 +1,6 @@
+<div class="rounded flex-align-center gap-3 p-2" [ngStyle]="getStyles()">
+    <ng-content></ng-content>
+    <span role="button" (click)="removed.emit()">
+        <i class="bi bi-x-lg"></i>
+    </span>
+</div>

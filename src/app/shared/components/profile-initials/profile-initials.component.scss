@@ -1,0 +1,13 @@
+.profile-wrapper {
+    position: relative;
+    overflow: hidden;
+    color: var(--color-light);
+    background-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 25%, transparent);
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}

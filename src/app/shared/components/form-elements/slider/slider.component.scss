@@ -1,0 +1,48 @@
+.slider-wrapper {
+    position: relative;
+    padding: 1.5rem 0;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 0.75rem;
+    border-radius: 10rem;
+    appearance: none;
+    background: var(--color-light-gray);
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+        appearance: none;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    &::-moz-range-thumb {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+    }
+}
+
+.thumb-icon {
+    position: absolute;
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-light);
+    font-size: 1.5rem;
+    pointer-events: none;
+}

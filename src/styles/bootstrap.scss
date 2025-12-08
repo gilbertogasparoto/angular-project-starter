@@ -11,6 +11,9 @@ $font-family-base: "Rubik", sans-serif;
 $input-padding-y: 0.5rem;
 $input-padding-x: 1rem;
 
+$input-focus-border-color: map-get($app-colors, "primary");
+$input-focus-box-shadow: 0, 0, 0, 4px, rgba(map-get($app-colors, "primary"), .25);
+
 $input-placeholder-color: map-get($app-colors, "gray-light");
 
 $form-label-font-size: 14px;

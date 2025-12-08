@@ -1,0 +1,79 @@
+.track {
+    position: relative;
+    background-color: var(--color-gray-light);
+    height: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.track .step {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    width: 25%;
+    margin-top: -20px;
+    text-align: center;
+    position: relative
+}
+
+.track .step {
+    &.active {
+        &::before {
+            background: var(--color-primary);
+        }
+
+        .icon {
+            background: var(--color-primary);
+            color: var(--color-light);
+            cursor: pointer;
+        }
+    }
+
+    &.current {
+        .icon {
+            box-shadow: 0px 0px 0px 8px color-mix(in srgb, var(--color-primary) 15%, transparent);
+            cursor: pointer;
+        }
+    }
+
+    &.success {
+        &::before {
+            background: var(--color-success) !important;
+        }
+
+        .icon {
+            background: var(--color-success) !important;
+            color: var(--color-light) !important;
+            cursor: default;
+        }
+    }
+}
+
+
+.track .step::before {
+    height: 3px;
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    top: 20px;
+    transition: 400ms ease;
+}
+
+.track .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    border-radius: 100%;
+    border: none;
+    background: var(--color-gray-light);
+    transition: 400ms ease;
+    line-height: 1;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}

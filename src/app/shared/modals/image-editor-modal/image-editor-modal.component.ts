@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ImageCroppedEvent, ImageTransform } from 'ngx-image-cropper';
-import { ImageService } from '../../../core/services/image.service';
+import { FileService } from '../../../core/services/file.service';
 
 @Component({
   selector: 'app-image-editor-modal',
@@ -23,7 +23,7 @@ export class ImageEditorModalComponent {
     scale: this.zoom
   };
 
-  constructor(public activeModal: NgbActiveModal, private imageService: ImageService) { }
+  constructor(public activeModal: NgbActiveModal, private fileService: FileService) { }
 
   onCrop(event: ImageCroppedEvent) {
     if (event.blob) {
@@ -33,7 +33,7 @@ export class ImageEditorModalComponent {
 
   confirmCrop() {
     if (this.croppedImage) {
-      this.imageService.blobToBase64(this.croppedImage).then(imageBase64 => {
+      this.fileService.blobToBase64(this.croppedImage).then(imageBase64 => {
         const image = imageBase64;
         this.edited.emit(image);
       })

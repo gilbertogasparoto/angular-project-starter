@@ -1,0 +1,8 @@
+<div class="slider-wrapper" [ngStyle]="cssVars">
+    <button class="thumb-icon" [ngStyle]="thumbStyle">
+        <i class="bi bi-arrows"></i>
+    </button>
+
+    <input type="range" [min]="min" [max]="max" [value]="value" (input)="onValueChange($event)"
+        [ngStyle]="progressStyle" />
+</div>

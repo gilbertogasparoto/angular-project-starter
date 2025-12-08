@@ -1,0 +1,44 @@
+@import '../../../../../styles/variables.scss';
+
+.btn {
+    &.btn-secondary {
+        --bs-btn-color: var(--color-gray);
+        --bs-btn-hover-color: var(--color-gray);
+        --bs-btn-active-color: var(--color-gray);
+        --bs-btn-bg: var(--color-light);
+        --bs-btn-hover-bg: var(--color-light);
+        --bs-btn-active-bg: var(--color-light);
+        --bs-btn-border-color: var(--color-gray-light);
+        --bs-btn-hover-border-color: var(--color-gray-light);
+        --bs-btn-active-border-color: var(--color-light);
+    }
+
+    &:disabled {
+        cursor: not-allowed !important;
+        background-color: var(--color-gray-light);
+        border-color: var(--color-gray-light);
+        color: var(--color-gray);
+    }
+}
+
+@each $color, $value in $app-colors {
+    .btn-soft-#{$color} {
+        background-color: rgba(var(--bs-#{$color}-rgb), 0.15);
+        color: var(--bs-#{$color});
+        border: none;
+
+        &:hover {
+            background-color: rgba(var(--bs-#{$color}-rgb), 0.25);
+        }
+    }
+
+    .btn-ghost-#{$color} {
+        background-color: transparent !important;
+        color: var(--bs-#{$color});
+        border: none;
+
+        &:hover {
+            color: lighten($value, 10%);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<label class="w-100 h-100" [for]="value">
+    <div class="card rounded h-100">
+        <div class="card-body p-3 flex-between-align-center gap-2">
+            <div>
+                <ng-content></ng-content>
+            </div>
+
+            <input type="radio" class="form-check-input" [id]="value" [name]="name" [value]="value"
+                [disabled]="disabled" (change)="select($event)" />
+        </div>
+    </div>
+</label>

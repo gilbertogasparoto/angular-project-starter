@@ -1,0 +1,85 @@
+<div class="table-responsive">
+    <table class="table">
+        <colgroup>
+            <col *ngFor="let column of columns" [style.width]="column.size ? column.size : 'max-content'">
+        </colgroup>
+
+        <thead class="table-light">
+            <tr>
+                <th *ngFor="let col of columns" [ngStyle]="{'text-align': col.align || 'left'}">
+                    {{ col.label }}
+                </th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <ng-container *ngIf="loading; else notLoading">
+                <tr *ngFor="let _ of loadingRows; let r = index" class="placeholder-row">
+                    <td *ngFor="let col of columns; let c = index" [ngStyle]="{'text-align': col.align || 'left'}">
+                        <div *ngIf="col?.type !== 'custom'; else customColumn" class="placeholder-glow">
+                            <span class="placeholder w-100 bg-gray-light"></span>
+                        </div>
+                        <ng-template #customColumn>
+                            <ng-container
+                                *ngTemplateOutlet="(getTemplate(col.field)); context: { $implicit: loadingRows, r: r, col: col }">
+                            </ng-container>
+                        </ng-template>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-template #notLoading>
+                <ng-container *ngIf="data.length; else emptyState">
+                    <tr *ngFor="let row of data; let rowIndex = index; trackBy: trackByRow">
+                        <td *ngFor="let col of columns; let colIndex = index; trackBy: trackByColumn"
+                            [ngStyle]="{'text-align': col.align || 'left'}">
+                            <ng-container *ngTemplateOutlet="(getTemplate(col.field) || defaultCellTpl);
+                              context: { $implicit: row, rowIndex: rowIndex, col: col }">
+                            </ng-container>
+                        </td>
+                    </tr>
+                </ng-container>
+
+                <ng-template #emptyState>
+                    <tr class="text-center">
+                        <td [attr.colspan]="columns.length" class="text-gray py-5">
+                            Nenhum registro encontrado.
+                        </td>
+                    </tr>
+                </ng-template>
+            </ng-template>
+        </tbody>
+
+        <ng-template #defaultCellTpl let-row let-col="col">
+            <ng-container [ngSwitch]="col?.type || 'text'">
+                <ng-container *ngSwitchCase="'date'">
+                    {{ row[col.field] ? (row[col.field] | date:(col.dateFormat ||'dd MMM yyyy')) : '-' }}
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'number'">
+                    {{ row[col.field] !== null && row[col.field] !== undefined ? (row[col.field] | number) : '-' }}
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'currency'">
+                    {{ row[col.field] !== null && row[col.field] !== undefined ? (row[col.field] | currency:
+                    (col.currency
+                    || 'BRL')) : '-' }}
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'boolean'">
+                    <ng-container *ngIf="row[col.field]; else falseTpl">
+                        <i class="bi bi-check-circle-fill text-success h4"></i>
+                    </ng-container>
+                    <ng-template #falseTpl>
+                        <i class="bi bi-dash-circle-fill text-gray opacity-50 h4"></i>
+                    </ng-template>
+                </ng-container>
+
+                <ng-container *ngSwitchDefault>
+                    {{ row[col.field] ?? '-' }}
+                </ng-container>
+            </ng-container>
+        </ng-template>
+    </table>
+</div>

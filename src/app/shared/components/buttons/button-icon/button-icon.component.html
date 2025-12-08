@@ -1,0 +1,10 @@
+<button [type]="type" [ngClass]="['btn', buttonStyle, 'btn-icon-' + size, 'p-0', 'rounded-' + rounded]"
+    [disabled]="disabled || loading" [attr.aria-busy]="loading ? 'true' : null" (click)="onclick.emit($event)">
+    <ng-container *ngIf="loading; else btnContainer">
+        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+        <span class="visually-hidden" role="status">Carregando...</span>
+    </ng-container>
+    <ng-template #btnContainer>
+        <i [ngClass]="icon"></i>
+    </ng-template>
+</button>

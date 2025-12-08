@@ -8,7 +8,7 @@ export class ErrorHandlingService {
 
   constructor() { }
 
-  getHttpError(err: any, fallbackMessage: string = 'Erro desconhecido.'): string {
+  getHttpError(err: any, fallbackMessage: string = 'Erro inesperado.'): string {
     if (typeof err?.error === 'string') {
       return err.error;
     } else if (err?.error?.message) {
@@ -31,6 +31,10 @@ export class ErrorHandlingService {
       errors.push('Email inválido.');
     }
 
+    if (control?.hasError('invalidlength')) {
+      errors.push(`Campo deve ter tamanho válido.`);
+    }
+
     if (control?.hasError('minlength')) {
       const err = control.getError('minlength');
       errors.push(`Campo deve ter no mínimo ${err.requiredLength} caracteres.`);
@@ -51,9 +55,22 @@ export class ErrorHandlingService {
       errors.push(`Valor deve ser no máximo ${err.max}.`);
     }
 
+    if (control?.hasError('fieldMismatch')) {
+      errors.push('Os valores não coincidem.');
+    }
+
+    if (control?.hasError('invalidCPF')) {
+      errors.push('CPF inválido.');
+    }
+
+    if (control?.hasError('invalidCNPJ')) {
+      errors.push('CNPJ  inválido.');
+    }
+
     if (control?.hasError('pattern')) {
       errors.push(`O formato do campo é inválido.`);
     }
+
 
     return errors;
   }
