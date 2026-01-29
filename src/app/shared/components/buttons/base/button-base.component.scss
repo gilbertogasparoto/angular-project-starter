@@ -2,14 +2,14 @@
 
 .btn {
     &.btn-secondary {
-        --bs-btn-color: var(--color-gray);
-        --bs-btn-hover-color: var(--color-gray);
-        --bs-btn-active-color: var(--color-gray);
-        --bs-btn-bg: var(--color-light);
-        --bs-btn-hover-bg: var(--color-light);
-        --bs-btn-active-bg: var(--color-light);
-        --bs-btn-border-color: var(--color-gray-light);
-        --bs-btn-hover-border-color: var(--color-gray-light);
+        --bs-btn-color: var(--color-light);
+        --bs-btn-hover-color: var(--color-light);
+        --bs-btn-active-color: var(--color-light);
+        --bs-btn-bg: var(--color-dark);
+        --bs-btn-hover-bg: var(--color-dark);
+        --bs-btn-active-bg: var(--color-dark);
+        --bs-btn-border-color: var(--color-dark);
+        --bs-btn-hover-border-color: var(--color-dark);
         --bs-btn-active-border-color: var(--color-light);
     }
 

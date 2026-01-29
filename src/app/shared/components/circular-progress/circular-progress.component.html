@@ -1,0 +1,15 @@
+<div class="circular-progress position-relative d-inline-flex justify-content-center align-items-center"
+    [style.width.px]="size" [style.height.px]="size">
+    <svg [attr.width]="size" [attr.height]="size" class="position-absolute">
+        <circle [attr.cx]="size / 2" [attr.cy]="size / 2" [attr.r]="radius" [attr.stroke-width]="stroke" stroke="#eee"
+            fill="none" />
+
+        <circle [attr.cx]="size / 2" [attr.cy]="size / 2" [attr.r]="radius" [attr.stroke-width]="stroke"
+            [attr.stroke]="strokeColor" fill="none" stroke-linecap="round" [attr.stroke-dasharray]="circumference"
+            [attr.stroke-dashoffset]="dashOffset" class="progress-circle" />
+    </svg>
+
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>

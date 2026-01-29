@@ -1,0 +1,9 @@
+.progress-circle {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    transition: stroke-dashoffset 0.6s ease;
+}
+
+.content {
+    z-index: 2;
+}

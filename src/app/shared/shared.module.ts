@@ -38,6 +38,7 @@ import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { RegistryMapPipe } from './pipes/registry-map.pipe';
+import { CircularProgressComponent } from './components/circular-progress/circular-progress.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { RegistryMapPipe } from './pipes/registry-map.pipe';
     DropdownOptionsComponent,
     ProfileInitialsComponent,
     PasswordRequirementsComponent,
-    RegistryMapPipe
+    RegistryMapPipe,
+    CircularProgressComponent
   ],
   imports: [
     CommonModule,
@@ -114,7 +116,8 @@ import { RegistryMapPipe } from './pipes/registry-map.pipe';
     DropdownOptionsComponent,
     ProfileInitialsComponent,
     PasswordRequirementsComponent,
-    RegistryMapPipe
+    RegistryMapPipe,
+    CircularProgressComponent
   ],
 })
 export class SharedModule { }

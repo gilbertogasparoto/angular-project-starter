@@ -11,7 +11,7 @@ export class ButtonBaseComponent<TTheme extends string = BtnTheme> {
   @Input() theme: TTheme = 'primary' as TTheme;
   @Input() variant: BtnVariant = 'default';
   @Input() size: BtnSize = 'md';
-  @Input() rounded: string = 'pill';
+  @Input() rounded: string = '3';
   @Input() disabled: boolean = false;
   @Input() loading: boolean = false;
   @Input() loadingText?: string;

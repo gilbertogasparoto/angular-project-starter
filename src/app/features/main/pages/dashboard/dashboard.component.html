@@ -1,0 +1,82 @@
+<div class="container">
+    <header class="py-5">
+        <div class="flex-between-align-center">
+            <h1 class="fw-bold">Orçamentos</h1>
+        </div>
+    </header>
+
+    <div class="row gy-3">
+        <div class="col-md-6 col-lg-4">
+            <app-input-search placeholder="Buscar orçamento..." />
+        </div>
+
+        <div class="col">
+            <div class="flex-justify-end flex-wrap gap-3 align-items-center">
+                <div class="dropdown">
+                    <app-button-default theme="light" icon="bi bi-sliders" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        <span class="me-2">Status</span> <app-text-pills color="secondary"
+                            [circle]="true">{{selectedStatuses.length}}</app-text-pills></app-button-default>
+
+                    <form class="dropdown-menu p-4 mt-3">
+                        <div class="d-flex flex-column gap-3">
+                            <div *ngFor="let status of budgetStatusValues" class="form-check">
+                                <input class="form-check-input" type="checkbox" [id]="'status-' + status"
+                                    [checked]="isStatusSelected(status)" (change)="toggleStatusFilter(status)">
+                                <label class="form-check-label" [for]="'status-' + status">
+                                    <span class="d-inline-block">
+
+                                        {{budgetStatusMap[status].label}}
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <app-button-default icon="bi bi-plus-lg" theme="secondary">Novo Orçamento</app-button-default>
+            </div>
+        </div>
+    </div>
+
+    <div class="row py-5 gy-4">
+        <ng-container *ngIf="!loading; else loaderContainer">
+            <div *ngFor="let budget of filteredBudgets" class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="fw-bold text-truncate-2 mb-4">{{budget.BudgetName}}</h4>
+
+                        <div class="flex-align-center gap-4">
+                            <app-circular-progress [percentage]="percentComplete(budget)">
+                                <h3 class="fw-bold text-center" [class.text-danger]="leftHours(budget) < 0">
+                                    {{hoursConversor(budget.Tracked)}}h</h3>
+                                <small class="text-gray text-center">{{percentComplete(budget)}}% gastos</small>
+                            </app-circular-progress>
+                            <div>
+                                <h4 class="fw-light">Restam</h4>
+                                <div class="d-flex gap-1 mb-2">
+                                    <h3 class="fw-bold" [class.text-danger]="leftHours(budget) < 0">
+                                        {{leftHours(budget)}}h
+                                    </h3>
+                                    <p class="text-secondary">/{{hoursConversor(budget.Planned)}}h</p>
+                                </div>
+                                <app-text-pills *ngIf="budget.Tracked > 0"
+                                    [color]="getBudgetStatus(budget) | registryMap: 'budgetStatus' : 'color'">
+                                    <h6><i class="bi bi-check2-circle"></i> {{getBudgetStatus(budget) | registryMap:
+                                        'budgetStatus' :
+                                        'label'}}</h6>
+                                </app-text-pills>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #loaderContainer>
+            <div class="flex-center py-5 h-100">
+                <app-loader></app-loader>
+            </div>
+        </ng-template>
+    </div>
+</div>

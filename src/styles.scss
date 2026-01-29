@@ -2,10 +2,16 @@
 @import "styles/variables";
 @import "styles/flexbox";
 
+@import "styles/typography";
+
 @import "styles/bootstrap";
 
 :root {
     @each $name, $value in $app-colors {
         --color-#{$name}: #{$value};
     }
+}
+
+body {
+    background-color: var(--color-gray-lighter);
 }

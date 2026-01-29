@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ComponentsPreviewComponent } from './dev/components-preview/components-preview.component';
+import { DashboardComponent } from './features/main/pages/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: ComponentsPreviewComponent }
+  { path: '', component: DashboardComponent }
 ];
 
 @NgModule({

@@ -5,12 +5,25 @@ $focus-ring-box-shadow: none;
 
 // typography
 
-$font-family-base: "Rubik", sans-serif;
+// typography
+
+$font-family-base: "Montserrat", sans-serif;
+$line-height-base: 2;
+$font-size-base: 1rem;
+
+$h1-font-size: 32px;
+$h2-font-size: 28px;
+$h3-font-size: 24px;
+$h4-font-size: 18px;
+$h5-font-size: 16px;
+$h6-font-size: 14px;
 
 // inputs
 $input-padding-y: 0.5rem;
 $input-padding-x: 1rem;
+$input-border-radius: 4rem;
 
+$input-border-color: map-get($app-colors, "light");
 $input-focus-border-color: map-get($app-colors, "primary");
 $input-focus-box-shadow: 0, 0, 0, 4px, rgba(map-get($app-colors, "primary"), .25);
 
@@ -22,9 +35,21 @@ $form-label-font-weight: 500;
 // checks and radios
 
 $form-check-input-width: 1.25em;
+$form-check-input-border: 1px solid map-get($app-colors, "dark");
+$form-check-input-focus-border: map-get($app-colors, "dark");
+$form-check-input-focus-box-shadow: none;
+$form-check-input-checked-bg-color: map-get($app-colors, "dark");
+$form-check-input-checked-border-color: map-get($app-colors, "dark");
 
 // butons
+$btn-border-radius: 2rem;
 $btn-border-width: 2px;
+
+//cards
+$card-border-width: 0;
+$card-border-radius: 0.75rem;
+$card-spacer-y: 1.5rem;
+$card-spacer-x: 1.5rem;
 
 
 @import "bootstrap-icons/font/bootstrap-icons.css";
